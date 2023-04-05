@@ -1,0 +1,5 @@
+{
+  "*.html": ["markuplint"],
+  "*.css": ["stylelint --fix", "prettier --write"],
+  "*.{json,md}": ["prettier --write"]
+}
