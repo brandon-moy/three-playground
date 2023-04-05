@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 // Always need a scene, camera, and renderer
 
+// allows us to move around scene with the mouse
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 // Scene - container that holds objects, cameras, and bytes
 const scene = new THREE.Scene();
 
@@ -49,12 +52,19 @@ const lightHelper = new THREE.PointLightHelper(pointLight);
 // grid helper - shows the grid of the scene
 const gridHelper = new THREE.GridHelper();
 scene.add(lightHelper, gridHelper);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+
 // recursive function that rerenders the screen when we want to animate something
 function animate() {
   requestAnimationFrame(animate);
+
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
+
+  controls.update();
+
   renderer.render(scene, camera);
 }
 
