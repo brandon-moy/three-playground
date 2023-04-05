@@ -50,10 +50,30 @@ scene.add(pointLight, ambientLight);
 // light helper - shows position of a point light
 const lightHelper = new THREE.PointLightHelper(pointLight);
 // grid helper - shows the grid of the scene
-const gridHelper = new THREE.GridHelper();
+const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+
+// function to create random star background
+function addStar() {
+  // creates a new sphere shape
+  const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+  // gives it a solid material, color white, that allows color to shine off of it
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  // creates a mesh of the shape and material to create the star
+  const star = new THREE.Mesh(geometry, material);
+  // randomly generate xyz positions for each star and map them with the random spread function from threejs
+  const [x, y, z] = Array(3)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(100));
+  // sets the position of the star
+  star.position.set(x, y, z);
+  // adds the star to the scene
+  scene.add(star);
+}
+
+Array(200).fill().forEach(addStar);
 
 // recursive function that rerenders the screen when we want to animate something
 function animate() {
