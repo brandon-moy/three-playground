@@ -5,7 +5,7 @@ const mercuryTexture = new THREE.TextureLoader().load(
 );
 
 const mercury = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.SphereGeometry(3.2, 30, 30),
   new THREE.MeshStandardMaterial({ map: mercuryTexture }),
 );
 
