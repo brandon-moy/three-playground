@@ -4,4 +4,9 @@ const mercuryTexture = new THREE.TextureLoader().load(
   '../images/planets/mercury.jpg',
 );
 
-export default mercuryTexture;
+const mercury = new THREE.Mesh(
+  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.MeshStandardMaterial({ map: mercuryTexture }),
+);
+
+export default mercury;

@@ -1,1 +1,10 @@
 export { default as sun } from './planets/sun.js';
+export { default as merucy } from './planets/mercury.js';
+export { default as venus } from './planets/venus.js';
+export { default as earth } from './planets/earth.js';
+export { default as mars } from './planets/mars.js';
+export { default as jupiter } from './planets/jupiter.js';
+export { default as saturn } from './planets/saturn.js';
+export { default as uranus } from './planets/uranus.js';
+export { default as neptune } from './planets/neptune.js';
+export { default as pluto } from './planets/pluto.js';
