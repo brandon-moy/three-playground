@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { sunTexture } from '../lib';
+import { sun } from '../components';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -28,10 +28,6 @@ scene.add(gridHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-const sun = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
-  new THREE.MeshStandardMaterial({ map: sunTexture }),
-);
 scene.add(sun);
 
 function animate() {
