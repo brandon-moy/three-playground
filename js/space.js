@@ -34,7 +34,7 @@ const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 // material is the type of wrapper
 // basic material does not require lightsource but standard material does
 const material = new THREE.MeshStandardMaterial({
-  color: 0xff6347,
+  color: 0xff8347,
 });
 const torus = new THREE.Mesh(geometry, material);
 scene.add(torus);
@@ -76,32 +76,32 @@ function addStar() {
 Array(200).fill().forEach(addStar);
 
 // takes an image and create a texture to apply to the background
-const spaceTexture = new THREE.TextureLoader().load('/images/space.png');
-scene.background = spaceTexture;
+// const spaceTexture = new THREE.TextureLoader().load('/images/space.png');
+// scene.background = spaceTexture;
 
 // texture mapping
-const bopsTexture = new THREE.TextureLoader().load('/images/bops.jpg');
+// const bopsTexture = new THREE.TextureLoader().load('/images/bops.jpg');
 
-// creates a new mesh
-const bops = new THREE.Mesh(
-  // mesh is a box
-  new THREE.BoxGeometry(3, 3, 3),
-  // maps the texture to each of the box faces
-  new THREE.MeshBasicMaterial({ map: bopsTexture }),
-);
+// // creates a new mesh
+// const bops = new THREE.Mesh(
+//   // mesh is a box
+//   new THREE.BoxGeometry(3, 3, 3),
+//   // maps the texture to each of the box faces
+//   new THREE.MeshBasicMaterial({ map: bopsTexture }),
+// );
 
-scene.add(bops);
+// scene.add(bops);
 
-const moonTexture = new THREE.TextureLoader().load('/images/moon.webp');
+// const moonTexture = new THREE.TextureLoader().load('/images/moon.webp');
 
-const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
-  new THREE.MeshStandardMaterial({
-    map: moonTexture,
-  }),
-);
+// const moon = new THREE.Mesh(
+//   new THREE.SphereGeometry(3, 32, 32),
+//   new THREE.MeshStandardMaterial({
+//     map: moonTexture,
+//   }),
+// );
 
-scene.add(moon);
+// scene.add(moon);
 // recursive function that rerenders the screen when we want to animate something
 function animate() {
   requestAnimationFrame(animate);
