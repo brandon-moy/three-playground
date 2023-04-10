@@ -5,7 +5,7 @@ const saturnTexture = new THREE.TextureLoader().load(
 );
 
 const saturn = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.SphereGeometry(10, 30, 30),
   new THREE.MeshStandardMaterial({ map: saturnTexture }),
 );
 

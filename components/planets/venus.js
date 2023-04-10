@@ -5,7 +5,7 @@ const venusTexture = new THREE.TextureLoader().load(
 );
 
 const venus = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.SphereGeometry(5.8, 30, 30),
   new THREE.MeshStandardMaterial({ map: venusTexture }),
 );
 

@@ -5,7 +5,7 @@ const neptuneTexture = new THREE.TextureLoader().load(
 );
 
 const neptune = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.SphereGeometry(7, 30, 30),
   new THREE.MeshStandardMaterial({ map: neptuneTexture }),
 );
 

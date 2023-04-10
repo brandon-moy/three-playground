@@ -5,7 +5,7 @@ const marsTexture = new THREE.TextureLoader().load(
 );
 
 const mars = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.SphereGeometry(4, 30, 30),
   new THREE.MeshStandardMaterial({ map: marsTexture }),
 );
 

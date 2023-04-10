@@ -5,7 +5,7 @@ const jupiterTexture = new THREE.TextureLoader().load(
 );
 
 const jupiter = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.SphereGeometry(12, 30, 30),
   new THREE.MeshStandardMaterial({ map: jupiterTexture }),
 );
 

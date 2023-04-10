@@ -5,7 +5,7 @@ const earthTexture = new THREE.TextureLoader().load(
 );
 
 const earth = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.SphereGeometry(6, 30, 30),
   new THREE.MeshStandardMaterial({ map: earthTexture }),
 );
 
