@@ -61,21 +61,25 @@ const venusScene = new THREE.Object3D();
 venusScene.add(venus);
 scene.add(venusScene);
 venus.position.x = 44;
+venusScene.rotation.y = -100;
 
 const earthScene = new THREE.Object3D();
 earthScene.add(earth);
 scene.add(earthScene);
 earth.position.x = 62;
+earthScene.rotation.y = 62;
 
 const marsScene = new THREE.Object3D();
 marsScene.add(mars);
 scene.add(marsScene);
 mars.position.x = 78;
+marsScene.rotation.y = -200;
 
 const jupiterScene = new THREE.Object3D();
 jupiterScene.add(jupiter);
 scene.add(jupiterScene);
 jupiter.position.x = 100;
+jupiterScene.rotation.y = -400;
 
 const saturnScene = new THREE.Object3D();
 const saturnRingTexture = new THREE.TextureLoader().load(
@@ -93,6 +97,7 @@ scene.add(saturnScene);
 saturn.position.x = 138;
 saturnRing.position.x = 138;
 saturnRing.rotation.x = -0.5 * Math.PI;
+saturnScene.rotation.y = 400;
 
 const uranusScene = new THREE.Object3D();
 const uranusRingTexture = new THREE.TextureLoader().load(
@@ -110,6 +115,7 @@ scene.add(uranusScene);
 uranus.position.x = 176;
 uranusRing.position.x = 176;
 uranusRing.rotation.x = -0.5 * Math.PI;
+uranusScene.rotation.y = -500;
 
 const neptuneScene = new THREE.Object3D();
 neptuneScene.add(neptune);
@@ -120,6 +126,7 @@ const plutoScene = new THREE.Object3D();
 plutoScene.add(pluto);
 scene.add(plutoScene);
 pluto.position.x = 216;
+plutoScene.rotation.y = 800;
 
 function animate() {
   requestAnimationFrame(animate);
