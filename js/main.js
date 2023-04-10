@@ -65,14 +65,38 @@ scene.add(jupiterScene);
 jupiter.position.x = 100;
 
 const saturnScene = new THREE.Object3D();
-saturnScene.add(saturn);
+const saturnRingTexture = new THREE.TextureLoader().load(
+  '../images/planets/saturn-ring.png',
+);
+const saturnRing = new THREE.Mesh(
+  new THREE.RingGeometry(10, 20, 32),
+  new THREE.MeshBasicMaterial({
+    map: saturnRingTexture,
+    side: THREE.DoubleSide,
+  }),
+);
+saturnScene.add(saturn, saturnRing);
 scene.add(saturnScene);
 saturn.position.x = 138;
+saturnRing.position.x = 138;
+saturnRing.rotation.x = -0.5 * Math.PI;
 
 const uranusScene = new THREE.Object3D();
-uranusScene.add(uranus);
+const uranusRingTexture = new THREE.TextureLoader().load(
+  '../images/planets/uranus-ring.png',
+);
+const uranusRing = new THREE.Mesh(
+  new THREE.RingGeometry(7, 12, 32),
+  new THREE.MeshBasicMaterial({
+    map: uranusRingTexture,
+    side: THREE.DoubleSide,
+  }),
+);
+uranusScene.add(uranus, uranusRing);
 scene.add(uranusScene);
 uranus.position.x = 176;
+uranusRing.position.x = 176;
+uranusRing.rotation.x = -0.5 * Math.PI;
 
 const neptuneScene = new THREE.Object3D();
 neptuneScene.add(neptune);
