@@ -13,7 +13,17 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
 });
 
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.setZ(30);
+
 renderer.render(scene, camera);
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(ambientLight);
+
+const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(gridHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
