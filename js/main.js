@@ -53,14 +53,14 @@ body.position.set(0, 25, 0);
 
 const leftArm = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 6),
-  new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
+  new THREE.MeshBasicMaterial({ color: 0xd8d8d8 }),
 );
 leftArm.position.set(-11, 28, 3);
 leftArm.rotateX(-0.75);
 
 const rightArm = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 6),
-  new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
+  new THREE.MeshBasicMaterial({ color: 0xd8d8d8 }),
 );
 rightArm.position.set(11, 28, 3);
 rightArm.rotateX(-0.75);
@@ -69,37 +69,59 @@ const leftLeg = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 7),
   new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
 );
-leftLeg.position.set(-5, 8, 0);
+leftLeg.position.set(-5, 9, 1);
+leftLeg.rotateX(50);
 
 const rightLeg = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 7),
   new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
 );
-rightLeg.position.set(5, 8, 0);
+rightLeg.position.set(5, 9, -1);
+rightLeg.rotateX(-50);
 
 scene.add(head, neck, body, leftArm, rightArm, leftLeg, rightLeg);
 
 let counter = 0;
-function shakeHead() {
+function moveRobot() {
   if (counter < 100) {
     head.rotateY(0.005);
+
     leftArm.rotateX(-0.005);
     leftArm.position.y += 0.01;
     leftArm.position.z += 0.01;
+
     rightArm.rotateX(0.005);
     rightArm.position.y -= 0.01;
     rightArm.position.z -= 0.01;
+
+    leftLeg.rotateX(0.005);
+    leftLeg.position.y -= 0.01;
+    leftLeg.position.z -= 0.03;
+
+    rightLeg.rotateX(-0.005);
+    rightLeg.position.y += 0.01;
+    rightLeg.position.z += 0.03;
     counter++;
   } else if (counter > 200) {
     counter = 0;
   } else {
     head.rotateY(-0.005);
+
     leftArm.rotateX(0.005);
     leftArm.position.y -= 0.01;
     leftArm.position.z -= 0.01;
+
     rightArm.rotateX(-0.005);
     rightArm.position.y += 0.01;
     rightArm.position.z += 0.01;
+
+    rightLeg.rotateX(0.005);
+    rightLeg.position.y -= 0.01;
+    rightLeg.position.z -= 0.03;
+
+    leftLeg.rotateX(-0.005);
+    leftLeg.position.y += 0.01;
+    leftLeg.position.z += 0.03;
     counter++;
   }
   console.log(counter);
@@ -108,7 +130,7 @@ function shakeHead() {
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
-  shakeHead();
+  moveRobot();
   renderer.render(scene, camera);
 }
 
