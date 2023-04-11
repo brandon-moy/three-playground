@@ -21,13 +21,47 @@ const renderer = new THREE.WebGLRenderer({
 const controls = new OrbitControls(camera, renderer.domElement);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.set(-0, 140, 140);
-
+camera.position.set(-30, 60, 150);
 renderer.render(scene, camera);
+
+const head = new THREE.Mesh(
+  new THREE.BoxGeometry(8, 8, 8),
+  new THREE.MeshBasicMaterial({ color: 0xf4f4f4 }),
+);
+head.position.set(0, 40, 0);
+head.rotateY(-5);
+
+const neck = new THREE.Mesh(
+  new THREE.BoxGeometry(4, 4, 4),
+  new THREE.MeshBasicMaterial({ color: 0xf8f8f8 }),
+);
+neck.position.set(0, 35, 0);
+
+const body = new THREE.Mesh(
+  new THREE.BoxGeometry(16, 20, 10),
+  new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
+);
+body.position.set(0, 25, 0);
+scene.add(head, neck, body);
+
+let counter = 0;
+function shakeHead() {
+  if (counter < 100) {
+    head.rotateY(0.005);
+    counter++;
+  } else if (counter > 200) {
+    counter = 0;
+  } else {
+    head.rotateY(-0.005);
+    counter++;
+  }
+  console.log(counter);
+}
 
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
+  shakeHead();
   renderer.render(scene, camera);
 }
 
