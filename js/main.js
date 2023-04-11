@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x87ceeb);
 const camera = new THREE.PerspectiveCamera(
   45,
   window.innerWidth / window.innerHeight,
@@ -21,7 +22,7 @@ const renderer = new THREE.WebGLRenderer({
 const controls = new OrbitControls(camera, renderer.domElement);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.set(-30, 60, 150);
+camera.position.set(-10, 60, 150);
 renderer.render(scene, camera);
 
 const greyTexture = new THREE.TextureLoader().load('../images/head.png');
@@ -86,6 +87,17 @@ const rightLeg = new THREE.Mesh(
 );
 rightLeg.position.set(5, 9, -1);
 rightLeg.rotateX(-50);
+
+const plane = new THREE.Mesh(
+  new THREE.PlaneGeometry(100, 100),
+  new THREE.MeshBasicMaterial({
+    color: 0x7cfc00,
+    side: THREE.DoubleSide,
+  }),
+);
+plane.rotateX(1.58);
+plane.position.y = 1;
+scene.add(plane);
 
 scene.add(head, neck, body, leftArm, rightArm, leftLeg, rightLeg);
 
