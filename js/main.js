@@ -24,10 +24,18 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.set(-30, 60, 150);
 renderer.render(scene, camera);
 
-const head = new THREE.Mesh(
-  new THREE.BoxGeometry(8, 8, 8),
-  new THREE.MeshBasicMaterial({ color: 0xf4f4f4 }),
-);
+const face = [
+  new THREE.MeshBasicMaterial({ color: 0xd8d8d8 }),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('../images/face.png'),
+  }),
+  new THREE.MeshBasicMaterial({ color: 0xd8d8d8 }),
+  new THREE.MeshBasicMaterial({ color: 0xd8d8d8 }),
+  new THREE.MeshBasicMaterial({ color: 0xd8d8d8 }),
+  new THREE.MeshBasicMaterial({ color: 0xd8d8d8 }),
+];
+
+const head = new THREE.Mesh(new THREE.BoxGeometry(8, 8, 8), face);
 head.position.set(0, 40, 0);
 head.rotateY(-5);
 
