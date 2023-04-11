@@ -67,13 +67,15 @@ const leftArm = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 6),
   new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
 );
-leftArm.position.set(-12, 27, 0);
+leftArm.position.set(-12, 29, 3);
+leftArm.rotateX(-0.75);
 
 const rightArm = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 6),
   new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
 );
-rightArm.position.set(12, 27, 0);
+rightArm.position.set(12, 29, 3);
+rightArm.rotateX(-0.75);
 
 scene.add(head, neck, body, leftJoint, rightJoint, leftArm, rightArm);
 
@@ -81,11 +83,23 @@ let counter = 0;
 function shakeHead() {
   if (counter < 100) {
     head.rotateY(0.005);
+    leftArm.rotateX(-0.005);
+    leftArm.position.y += 0.01;
+    leftArm.position.z += 0.01;
+    rightArm.rotateX(0.005);
+    rightArm.position.y -= 0.01;
+    rightArm.position.z -= 0.01;
     counter++;
   } else if (counter > 200) {
     counter = 0;
   } else {
     head.rotateY(-0.005);
+    leftArm.rotateX(0.005);
+    leftArm.position.y -= 0.01;
+    leftArm.position.z -= 0.01;
+    rightArm.rotateX(-0.005);
+    rightArm.position.y += 0.01;
+    rightArm.position.z += 0.01;
     counter++;
   }
   console.log(counter);
