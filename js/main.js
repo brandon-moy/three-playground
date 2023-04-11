@@ -51,30 +51,18 @@ const body = new THREE.Mesh(
 );
 body.position.set(0, 25, 0);
 
-const leftJoint = new THREE.Mesh(
-  new THREE.BoxGeometry(4, 4, 4),
-  new THREE.MeshBasicMaterial({ color: 0xf8f8f8 }),
-);
-leftJoint.position.set(-9, 32, 0);
-
-const rightJoint = new THREE.Mesh(
-  new THREE.BoxGeometry(4, 4, 4),
-  new THREE.MeshBasicMaterial({ color: 0xf8f8f8 }),
-);
-rightJoint.position.set(9, 32, 0);
-
 const leftArm = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 6),
   new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
 );
-leftArm.position.set(-12, 29, 3);
+leftArm.position.set(-11, 28, 3);
 leftArm.rotateX(-0.75);
 
 const rightArm = new THREE.Mesh(
   new THREE.BoxGeometry(6, 15, 6),
   new THREE.MeshBasicMaterial({ color: 0xd4d4d4 }),
 );
-rightArm.position.set(12, 29, 3);
+rightArm.position.set(11, 28, 3);
 rightArm.rotateX(-0.75);
 
 const leftLeg = new THREE.Mesh(
@@ -89,17 +77,7 @@ const rightLeg = new THREE.Mesh(
 );
 rightLeg.position.set(5, 8, 0);
 
-scene.add(
-  head,
-  neck,
-  body,
-  leftJoint,
-  rightJoint,
-  leftArm,
-  rightArm,
-  leftLeg,
-  rightLeg,
-);
+scene.add(head, neck, body, leftArm, rightArm, leftLeg, rightLeg);
 
 let counter = 0;
 function shakeHead() {
